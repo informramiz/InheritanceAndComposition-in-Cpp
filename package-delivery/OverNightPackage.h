@@ -1,3 +1,6 @@
+#ifndef OVERNIGHTPACKAGE_H
+#define OVERNIGHTPACKAGE_H
+
 #include "Package.h"
 
 class OverNightPackage : public Package 
@@ -8,12 +11,16 @@ class OverNightPackage : public Package
 
 	public:
 
-		OverNightPackage ( const string & sName , const string & rName , const string & sAd , 
-			const string & rAd , const string & scity , const string & rcity , const string & sState
-			, const string & rstate , int sZip , int rZip , float cst , float w , float f );
+		OverNightPackage ( const CString & sName , const CString & rName , const CString & sAd , 
+			const CString & rAd , const CString & scity , const CString & rcity , const CString & sState
+			, const CString & rstate , int sZip , int rZip , float cst , float w , float f );
 
+		OverNightPackage ( const Person & , const Person & , float , float , float );
 		void setAdditionalFee ( float );
 		float getAdditionalFee ( ) const;
 
-		float calculateCost ( ) const;	
+		virtual float calculateCost ( ) const;
+		virtual void print ( ) const;
 };
+
+#endif

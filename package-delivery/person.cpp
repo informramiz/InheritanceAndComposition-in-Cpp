@@ -1,6 +1,6 @@
 #include "person.h"
 
-Person::Person ( const string & n , const string & ad , const string & c , const string & s , int z )
+Person::Person ( const CString & n , const CString & ad , const CString & c , const CString & s , int z )
 {
 	name = n;
 	address = ad;
@@ -9,42 +9,42 @@ Person::Person ( const string & n , const string & ad , const string & c , const
 	zipCode = ( z >= 0 ) ? z : 0 ;
 }
 
-void Person::setName ( const string & n )
+void Person::setName ( const CString & n )
 {
 	name = n;
 }
 
-string Person::getName ( ) const
+CString Person::getName ( ) const
 {
 	return name;
 }
 
-void Person::setCity ( const string & c )
+void Person::setCity ( const CString & c )
 {
 	city = c;
 }
 
-string Person::getCity ( ) const
+CString Person::getCity ( ) const
 {
 	return city;
 }
 
-void Person::setAddress ( const string & ad )
+void Person::setAddress ( const CString & ad )
 {
 	address = ad;
 }
 
-string Person::getAddress ( ) const
+CString Person::getAddress ( ) const
 {
 	return address;
 }
 
-void Person::setState ( const string & s )
+void Person::setState ( const CString & s )
 {
 	state = s;
 }
 
-string Person::getState ( ) const
+CString Person::getState ( ) const
 {
 	return state;
 }

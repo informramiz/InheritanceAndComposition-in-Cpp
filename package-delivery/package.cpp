@@ -1,8 +1,8 @@
 #include "package.h"
 
-Package::Package ( const string & sName , const string & rName , const string & sAd , 
-			const string & rAd , const string & scity , const string & rcity , 
-			const string & sState , const string & rstate , int sZip , int rZip , float cst , float w )
+Package::Package ( const CString & sName , const CString & rName , const CString & sAd , 
+			const CString & rAd , const CString & scity , const CString & rcity , 
+			const CString & sState , const CString & rstate , int sZip , int rZip , float cst , float w )
 			:sender ( sName , sAd , scity , sState , sZip ) 
 			, receiver ( rName , rAd , rcity , rstate , rZip )
 {
@@ -10,29 +10,107 @@ Package::Package ( const string & sName , const string & rName , const string & 
 	weight = ( w >= 0.0 ) ? w : 0.0 ;
 }
 
-void Package::setWeight ( int value )
+Package::Package ( const Person & s , const Person & r , float c , float w )
+	:sender ( s ) , receiver ( r )
+{
+	cost = c;
+	weight = w;
+}
+
+void Package::setWeight ( float value )
 {
 	if ( value >= 0.0 )
 		weight = value;
 }
 
-double Package::getWeight ( ) const
+float Package::getWeight ( ) const
 {
 	return weight;
 }
 
-void Package::setCost ( int value ) 
+void Package::setCost ( float value ) 
 {
 	if ( value >= 0.0 )
 		cost = value;
 }
 
-double Package::getCost ( ) const
+float Package::getCost ( ) const
 {
 	return cost;
 }
 
-double Package::calculateCost ( ) const
+//float Package::calculateCost ( ) const
+//{
+	//return getCost ( ) * getWeight ( );
+//}
+
+void Package::setSenderAddress ( const CString & str )
 {
-	return getCost ( ) * getWeight ( );
+	sender.setAddress ( str );
+}
+
+CString Package::getSenderAddresss ( ) const
+{
+	return sender.getAddress ( );
+}
+
+void Package::setReceiverAddress ( const CString & str )
+{
+	receiver.setAddress ( str );
+}
+
+CString Package::getReceiverAddress ( ) const
+{
+	return receiver.getAddress ( );
+}
+
+void Package::setSenderName ( const CString & str )
+{
+	sender.setName ( str );
+}
+
+CString Package::getSenderName ( ) const
+{
+	return sender.getName ( );
+}
+
+void Package::setReceiverName ( const CString & str )
+{
+	receiver.setName ( str );
+}
+
+CString Package::getReceiverName ( ) const
+{
+	return receiver.getName ( );
+}
+
+void Package::setSenderCity ( const CString & str )
+{
+	sender.setCity ( str );
+}
+
+CString Package::getSenderCity ( ) const
+{
+	return sender.getCity ( );
+}
+
+void Package::setReceiverCity ( const CString & str )
+{
+	receiver.setCity ( str );
+}
+
+CString Package::getReceiverCity ( ) const
+{
+	return receiver.getCity ( );
+}
+
+void Package::print ( ) const
+{
+	cout << "Sender : ";
+	sender.print ( );
+
+	cout << "\nReceiver : ";
+	receiver.print ( );
+	
+	cout << endl;
 }
